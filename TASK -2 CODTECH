@@ -1,0 +1,60 @@
+//Create a program that converts temperature between celcius , fahrenheit and kelvin. The progam should allow the user to input a temperature in one scale and output the converted temperature in another scale.
+#include<stdio.h>
+
+void celToKelFar(float cel) {
+    float kel = cel+273.2;
+    float far = (9.0/5.0)*cel + 32;
+    printf("%f K \n", kel);
+    printf("%f F \n", far);
+}
+
+void farToCelKel(float far) {
+    float cel = (float)(5.0/9.0)*(far - 32);
+    float kel = cel + 273.2;
+    
+    printf("%f C \n", cel);
+    printf("%f K \n", kel);
+}
+
+void kelToCelFar(float kel) {
+    float cel = kel - 273.2;;
+    float far = (9.0/5.0)*cel + 32;
+    
+    printf("%f C \n", cel);
+    printf("%f F \n", far);
+}
+
+int main() {
+    do{
+        int n; 
+        float temp;
+        printf("1. Convert Celsius to Farhenit and Kelvin \n");
+        printf("2. Convert Farhenit to Celsius and Kelvin \n");
+        printf("3. Convert Kelvin to Celsius and Farhenit \n");
+        printf("4. Exit \n");
+
+        printf("Enter your choice \n");
+        scanf("%d", &n);
+        
+        switch(n) {
+            case 1: printf("Enter your temperature to be converted \n");
+                    scanf("%f", &temp);
+                    celToKelFar(temp);
+                    break;
+            case 2: printf("Enter your temperature to be converted \n");
+                    scanf("%f", &temp);
+                    farToCelKel(temp);
+                    break;
+            case 3: printf("Enter your temperature to be converted \n");
+                    scanf("%f", &temp);
+                    kelToCelFar(temp);
+                    break;
+            case 4: return 0;
+                    break;
+            deafult: printf("Enter cUrrent choice \n");
+                    break;
+        }
+    }while(1>0);
+
+    return 0;
+}
